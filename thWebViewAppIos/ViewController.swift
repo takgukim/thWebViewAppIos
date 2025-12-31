@@ -1,19 +1,20 @@
-//
-//  ViewController.swift
-//  thWebViewAppIos
-//
-//  Created by 개발자이태희 on 1/1/26.
-//
-
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
 
+    var webView: WKWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        webView = WKWebView(frame: self.view.frame)
+        self.view.addSubview(webView)
+
+        if let url = URL(string: "http://localhost:8080/prj") {
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
     }
-
-
 }
 
